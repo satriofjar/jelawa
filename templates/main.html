@@ -1,0 +1,112 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IndonesiaLearn</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-color: #f3ede0;
+        }
+
+        .rounded-circle-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #f3ede0;
+            color: #90953b;
+            font-weight: bold;
+        }
+
+        .footer-icon {
+            width: 30px;
+            height: 30px;
+            background-color: #e2b971;
+            color: white;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+    </style>
+    
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #90953b;">
+        <div class="container">
+                <a href="{% url 'home' %}" class="navbar-brand d-flex align-items-center">
+                <div class="rounded-circle me-2 d-flex align-items-center justify-content-center rounded-circle-icon">
+                    ID
+                </div>
+                <span class="fw-bold">Jelawa</span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a href="#" class="nav-link active">Home</a></li>
+                    <li class="nav-item"><a href="explore.html" class="nav-link">Explore</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    {% block content %}
+
+    {% endblock content %}
+
+    <!-- Footer -->
+    <footer class="mt-auto py-4" style="background-color: #1F2937; color: white;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <div class="d-flex align-items-center mb-2">
+                        <div class="rounded-circle me-2 d-flex align-items-center justify-content-center footer-icon">
+                            ID
+                        </div>
+                        <span class="fw-bold">Jelawa</span>
+                    </div>
+                    <p class="text-light mb-0">Discover the beauty and diversity of Indonesia through interactive
+                        learning.</p>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <h6 class="fw-bold mb-3">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light text-decoration-none">Home</a></li>
+                        <li><a href="explore.html" class="text-light text-decoration-none">Explore</a></li>
+                        <li><a href="about.html" class="text-light text-decoration-none">About</a></li>
+                        <li><a href="contact.html" class="text-light text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <h6 class="fw-bold mb-3">Islands</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="java.html" class="text-light text-decoration-none">Java</a></li>
+                        <li><a href="sumatra.html" class="text-light text-decoration-none">Sumatra</a></li>
+                        <li><a href="bali.html" class="text-light text-decoration-none">Bali</a></li>
+                        <li><a href="sulawesi.html" class="text-light text-decoration-none">Sulawesi</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4" style="border-color: #374151;" />
+            <div class="text-center">
+                <p class="mb-0 text-light">© 2025 Jelawa. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

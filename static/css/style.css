@@ -1,0 +1,77 @@
+.sec-color {
+    color: #90953b;
+}
+
+.sec-bg {
+    background-color: #90953b;
+}
+
+.th-bg {
+    background-color: #f3ede0;
+}
+
+.main-btn {
+    background-color: #e2b971 !important;
+    border-color: #e2b971;
+    color: white;
+    border-radius: 8px;
+    font-weight: 400;
+    padding: 12px;
+}
+
+.main-btn,
+.main-btn:visited,
+.main-btn:hover,
+.main-btn:active {
+    text-decoration: none;
+    color: white;
+    background-color: #f3ede0;
+}
+
+.navbar {
+    background-color: #90953b !important;
+}
+
+.island-shape {
+    fill: #90953b;
+    opacity: 0.9;
+}
+
+.island-shape:hover {
+    opacity: 1;
+}
+
+.marker {
+    opacity: 1 !important;
+}
+
+/* Modal*/
+.modal-title {
+    color: #90953b;
+    font-weight: 300;
+}
+
+.btn-city:hover,
+.btn-check:checked+.btn-city {
+    background-color: #d6c192 !important;
+    /* warna pas ke-click */
+    color: white;
+}
+
+/* city */
+.actv {
+    background-color: #e2b971 !important;
+    border-color: #e2b971 !important;
+    color: white !important;
+}
+
+button.btn.btn-answer.btn-outline-secondary:hover {
+    background-color: transparent;
+    border-color: #6c757d; 
+    color: #6c757d;
+}
+
+.img-question {
+    max-width: 450px;
+    max-height: 450px;
+}

@@ -1,0 +1,4 @@
+membuat semua data input menjadi lowercase
+jika ingin menampilkan data, dapat dicustom huruf pertama uppercase
+
+buat validartor nama pulau, city menjadi lowercase

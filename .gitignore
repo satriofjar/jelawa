@@ -1,0 +1,21 @@
+*.log
+*.pot
+*.pyc
+*.pyo
+__pycache__/
+local_settings.py
+
+
+/db.sqlite3
+staticfiles/
+media/
+
+**/migrations/*.py
+!**/migrations/__init__.py
+
+# Environments 
+.env 
+env/
+req.txt
+# Visual Studio Code # 
+.vscode/* 
