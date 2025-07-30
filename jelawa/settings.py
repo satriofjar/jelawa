@@ -16,8 +16,10 @@ SECRET_KEY =  os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG") == "True"
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
+API_BASE_URL = os.getenv('API_BASE_URL', '/api')
+IMG_BASE_URL = os.getenv('IMG_BASE_URL', '/media')
 
 # Application definition
 
@@ -128,7 +130,7 @@ STATICFILES_DIRS = [
 ]
 
 
-STATIC_ROOT= '/home/tenb4948/public_html/tenomas/static/'
+STATIC_ROOT= '/home/tenb4948/public_html/jelawa/static/'
 
 
 if DEBUG:

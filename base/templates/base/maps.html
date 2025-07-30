@@ -405,5 +405,36 @@
   </div>
 </div>
 
+<script>
+  // Add maps point on each island
+  const pulauMarkers = {
+    Sumatera: { x: 120, y: 140 },
+    Jawa: { x: 250, y: 245 },
+    Bali: { x: 347, y: 260 },
+    Kalimantan: { x: 320, y: 140 },
+    Sulawesi: { x: 440, y: 160 },
+    Maluku: { x: 570, y: 106 },
+    Papua: { x: 730, y: 180 },
+  };
+  const svgNS = "http://www.w3.org/2000/svg";
+
+  Object.entries(pulauMarkers).forEach(([id, { x, y }]) => {
+    const g = document.querySelector(`#${id}`);
+    if (!g) return;
+
+    const marker = document.createElementNS(svgNS, "image");
+    marker.setAttribute(
+      "href",
+          "{{ API_BASE_URL }}/img/maps-point.png",
+    );
+    marker.setAttribute("x", x - 10);
+    marker.setAttribute("y", y - 10);
+    marker.setAttribute("width", 20);
+    marker.setAttribute("height", 20);
+    marker.setAttribute("class", "marker");
+    g.appendChild(marker);
+  });
+</script>
+
 <script src="{% static 'js/index.js' %}"></script>
 {% endblock content %}

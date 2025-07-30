@@ -1,9 +1,9 @@
+from django.conf import settings
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 
+from .models import City, Island
 from .serialize import serialize_questions
-
-from .models import City, Island, Question
 
 
 # Homepage
@@ -19,10 +19,12 @@ def maps(request):
         city = City.objects.filter(name=city_name).first()
 
         if city != None:
-            return redirect('city-detail', city_name=city)
-            
-        
-    context = {}
+            return redirect("city-detail", city_name=city)
+
+    context = {
+        "API_BASE_URL": settings.API_BASE_URL,
+        "IMG_BASE_URL": settings.IMG_BASE_URL,
+    }
     return render(request, "base/maps.html", context)
 
 
@@ -30,9 +32,10 @@ def maps(request):
 def island(request, city_name):
     city = get_object_or_404(City, name=city_name)
 
-    
     context = {
         "city": city,
+        "API_BASE_URL": settings.API_BASE_URL,
+        "IMG_BASE_URL": settings.IMG_BASE_URL,
     }
     return render(request, "base/learn.html", context)
 
@@ -43,8 +46,8 @@ def get_island(request, pk):
     data = {
         "name": island.name,
         "desc": island.description,
-        "cities": [{"name": city.name} for city in cities]
-    } 
+        "cities": [{"name": city.name} for city in cities],
+    }
     return JsonResponse(data, safe=False)
 
 
