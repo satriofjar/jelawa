@@ -130,7 +130,7 @@ STATICFILES_DIRS = [
 ]
 
 
-STATIC_ROOT= '/home/tenb4948/public_html/jelawa/static/'
+STATIC_ROOT= '/home/tenb4948/public_html/prototype.tenomas.com/static/'
 
 
 if DEBUG:
@@ -139,7 +139,7 @@ if DEBUG:
     MEDIA_ROOT =  BASE_DIR / 'static/img'    
 
 else:
-    STATIC_URL = 'jelawa/static/'
+    STATIC_URL = 'static/'
     MEDIA_URL = 'https://media.tenomas.com/'
     MEDIA_ROOT =  '/home/tenb4948/public_html/media.tenomas.com/' 
 # Default primary key field type
