@@ -3,12 +3,12 @@ from base.validators import validate_file_size
 
 # Create your models here.
 class IndexContent(models.Model):
-    hero_title = models.CharField()
+    hero_title = models.CharField(max_length=225)
     hero_desc = models.TextField()
     hero_sec_desc = models.TextField()
 
-    sec_title = models.CharField()
-    th_title = models.CharField(default="")
+    sec_title = models.CharField(max_length=225)
+    th_title = models.CharField(max_length=225)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def get_content_box(self):
@@ -16,7 +16,7 @@ class IndexContent(models.Model):
 
 class ContenxtBox(models.Model):
     index_content = models.ForeignKey(IndexContent, on_delete=models.CASCADE)
-    title = models.CharField()
+    title = models.CharField(max_length=225)
     desc = models.TextField()
     img = models.ImageField(validators=[validate_file_size])
 
@@ -33,7 +33,7 @@ class ContenxtBox(models.Model):
         return str(self.title)
 
 class MapsContent(models.Model):
-    maps_title = models.CharField()
+    maps_title = models.CharField(max_length=225)
     maps_desc = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     
