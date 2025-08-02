@@ -29,7 +29,7 @@ async function showModal(id) {
         citiesWrapper.style.display = data.cities.length == 1 ? "none" : "inline";
 
         const cardMap = document.querySelector(".card-map");
-        cardMap.innerHTML = `<img src="${window.APP_CONFIG.apiBase}/img/${id.toLowerCase()}.svg" alt="Pulau ${id}" />`;
+        cardMap.innerHTML = `<img src="${window.APP_CONFIG.imgBase}/img/${id.toLowerCase()}.svg" class="img-fluid" alt="Pulau ${id}" />`;
         const modal = new bootstrap.Modal(document.getElementById("modal-island"));
         modal.show();
     } catch (error) {
@@ -70,9 +70,9 @@ function handleQuestion(questions, idx) {
     answers.innerHTML = "";
     if (questions[idx].img) {
         imgContainer.innerHTML = `<img
-                                      src="${window.APP_CONFIG.imgBase}/${questions[idx].img}"
+                                      src="${questions[idx].img}"
                                       alt=""
-                                      class="img-fluid rounded img-question shadow"
+                                      class="img-fluid rounded shadow"
                                     />`;
     }
 

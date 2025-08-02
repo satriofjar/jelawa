@@ -1,107 +1,120 @@
-{% extends 'main.html' %}
-{% block content %}
-  <!-- Hero Section -->
-  <section class="py-5" style="background-color: #f3ede0;">
-    <div class="container">
-      <div class="row align-items-center min-vh-50">
-        <div class="col-lg-6">
-          <h1 class="display-4 fw-bold mb-4" style="color: #90953b;">
-            Discover the Wonders of Indonesia
-          </h1>
-          <p class="lead mb-4" style="color: #374151;">
-            Embark on an interactive journey through Indonesia's magnificent archipelago. Learn about the rich culture, diverse landscapes, and fascinating history of each major island through engaging videos and interactive quizzes.
-          </p>
-          <p class="mb-4" style="color: #6B7280;">
-            From the bustling streets of Java to the pristine beaches of Bali, from the wildlife of Sumatra to the cultural heritage of Sulawesi - explore Indonesia like never before with our immersive learning experience.
-          </p>
-          <div class="d-flex gap-3">
-            <a href="{% url 'mulai-jelajah' %}" class="btn btn-lg main-btn px-4 py-2">
-              Start Exploring
-            </a>
-            <!-- <button class="btn btn-outline-secondary btn-lg px-4 py-2">Learn More</button> -->
-          </div>
-        </div>
-        <div class="col-lg-6 text-center">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Indonesian_cities_and_regencies.svg" width="500" height="400" alt="Indonesian Islands Illustration" class="img-fluid" />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Map Section -->
-  <section class="py-5 bg-white">
-    <div class="container">
-      <div class="row text-center mb-5">
-        <div class="col">
-          <h2 class="display-5 fw-bold mb-3" style="color: #90953b;">Explore Indonesia's Major Islands</h2>
-          <!-- <p class="lead" style="color: #6B7280;">Click on any island to begin your learning adventure</p> -->
-        </div>
-      </div>
-
-      <div class="row justify-content-center">
-        <div class="col-lg-10 text-center">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Indonesian_cities_and_regencies.svg" width="800" height="500" class="img-fluid rounded" alt="Map of Indonesia"/>
-          <!-- <div class="translate-middle text-center p-4 rounded" style="background-color: rgba(144, 149, 59, 0.9); color: white;"> -->
-          <!--   <h4 class="mb-2">Interactive Map Coming Soon!</h4> -->
-          <!--   <p class="mb-0">Click the button below to start exploring</p> -->
-          </div>
-        </div>
-      </div>
-
-      <div class="row mt-5 text-center">
-        <div class="col">
-                  <a href="{% url 'mulai-jelajah' %}" class="btn btn-lg px-5 py-3" style="background-color: #e2b971; border-color: #e2b971; color: white; font-size: 1.2rem;">
-            🗺️ Start Exploring Interactive Map
+{% extends 'main.html' %} {% load static %} {% block content %}
+<!-- Hero Section -->
+<section class="py-5" style="background-color: #f3ede0">
+  <div class="container">
+    <div class="row align-items-center min-vh-50">
+      <div class="col-lg-6">
+        <h1 class="display-4 fw-bold mb-4" style="color: #90953b">
+          {{ index_content.hero_title }}
+        </h1>
+        <p class="lead mb-4" style="color: #374151">
+          {{ index_content.hero_desc }}
+        </p>
+        <p class="mb-4" style="color: #6b7280">
+          {{ index_content.hero_sec_desc }}
+        </p>
+        <div class="d-flex gap-3">
+          <a
+            href="{% url 'mulai-jelajah' %}"
+            class="btn btn-lg main-btn px-4 py-2"
+          >
+            Mulai Jelajah
           </a>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Features -->
-  <section class="py-5" style="background-color: #f3ede0;">
-    <div class="container">
-      <div class="row text-center mb-5">
-        <div class="col">
-          <h3 class="fw-bold mb-3" style="color: #90953b;">What You'll Learn</h3>
-        </div>
-      </div>
-
-      <div class="row g-4">
-        <!-- Feature 1 -->
-        <div class="col-md-4">
-          <div class="card h-100 border-0 shadow-sm text-center p-4">
-            <div class="rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 60px; height: 60px; background-color: #e2b971; color: white;">
-              🎥
-            </div>
-            <h5 class="card-title fw-bold">Educational Videos</h5>
-            <p class="card-text text-muted">Watch engaging videos about each island's unique culture, history, and natural wonders.</p>
-          </div>
-        </div>
-
-        <!-- Feature 2 -->
-        <div class="col-md-4">
-          <div class="card h-100 border-0 shadow-sm text-center p-4">
-            <div class="rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 60px; height: 60px; background-color: #e2b971; color: white;">
-              📝
-            </div>
-            <h5 class="card-title fw-bold">Interactive Quizzes</h5>
-            <p class="card-text text-muted">Test your knowledge with fun multiple-choice quizzes after each video lesson.</p>
-          </div>
-        </div>
-
-        <!-- Feature 3 -->
-        <div class="col-md-4">
-          <div class="card h-100 border-0 shadow-sm text-center p-4">
-            <div class="rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 60px; height: 60px; background-color: #e2b971; color: white;">
-              🗺️
-            </div>
-            <h5 class="card-title fw-bold">Interactive Map</h5>
-            <p class="card-text text-muted">Explore Indonesia through an interactive map interface with clickable islands.</p>
-          </div>
-        </div>
+      <div class="col-lg-6 text-center hero-right">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Indonesian_cities_and_regencies.svg"
+          width="500"
+          height="400"
+          alt="Indonesian Islands Illustration"
+          class="img-fluid"
+        />
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
+<!-- Map Section -->
+<section class="py-5 bg-white">
+  <div class="container">
+    <div class="row text-center mb-5">
+      <div class="col">
+        <h2 class="display-5 fw-bold mb-3" style="color: #90953b">
+          {{ index_content.sec_title }}
+        </h2>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-10 text-center">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Indonesian_cities_and_regencies.svg"
+          width="800"
+          height="500"
+          class="img-fluid rounded"
+          alt="Map of Indonesia"
+        />
+      </div>
+    </div>
+
+    <div class="row mt-5 text-center">
+      <div class="col">
+        <a
+          href="{% url 'mulai-jelajah' %}"
+          class="btn btn-lg px-4 py-3"
+          style="
+            background-color: #e2b971;
+            border-color: #e2b971;
+            color: white;
+            font-size: 1.2rem;
+          "
+        >
+          🗺️ Mulai Jelajahi Peta
+       </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<section class="py-5" style="background-color: #f3ede0">
+  <div class="container">
+    <div class="row text-center mb-5">
+      <div class="col">
+        <h3 class="fw-bold mb-3" style="color: #90953b">
+          {{ index_content.th_title }}
+        </h3>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      {% for content in index_content.get_content_box %}
+      <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm text-center p-4">
+          <div
+            class="rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center"
+            style="
+              width: 60px;
+              height: 60px;
+              background-color: #e2b971;
+              color: white;
+            "
+          >
+            <img
+              src="{{ content.imageURL }}"
+              class="img-fluid"
+              style="width: 35%"
+              alt=""
+            />
+          </div>
+          <h5 class="card-title fw-bold">{{ content.title }}</h5>
+          <p class="card-text text-muted">{{ content.desc }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
 
 {% endblock content %}

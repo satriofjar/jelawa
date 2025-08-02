@@ -1,12 +1,15 @@
 from django.contrib import admin
-from .models import Island, City, Question, Answer
+
+from .models import Answer, City, Island, Question
+
 # Register your models here.
 
 class AnswareInline(admin.TabularInline):
     model = Answer
 
 class QuestionAdmin(admin.ModelAdmin):
-     inlines = (AnswareInline,)
+    inlines = (AnswareInline,)
+    list_filter = ("city__name",)
 
 
 admin.site.register(Island)

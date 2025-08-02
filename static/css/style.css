@@ -28,8 +28,17 @@
     background-color: #f3ede0;
 }
 
+.icon-container{
+    width: 100px;
+}
 .navbar {
     background-color: #90953b !important;
+}
+
+@media(max-width: 1000px){
+    .hero-right{
+        display: none;
+    }
 }
 
 .island-shape {
@@ -71,7 +80,8 @@ button.btn.btn-answer.btn-outline-secondary:hover {
     color: #6c757d;
 }
 
-.img-question {
-    max-width: 450px;
-    max-height: 450px;
+/*Admin*/
+.ck-editor__editable {
+    color: black !important;
+    background-color: white !important;
 }

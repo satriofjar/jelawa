@@ -9,7 +9,7 @@ def serialize_questions(city_name):
             'id': q.id,
             'city': city_name,
             'text': q.text,
-            'img': q.img.url if q.img else None,
+            'img': q.imageURL if q.img else None,
             'answers': [
                 {'id': a.id, 'text': a.text, 'is_correct': a.correct}
                 for a in q.answer_set.all()
