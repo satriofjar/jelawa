@@ -130,7 +130,7 @@ USE_TZ = True
 STATICFILES_DIRS = [BASE_DIR / "static"]
 
 
-STATIC_ROOT = "/home/tenb4948/public_html/prototype.tenomas.com/static/"
+STATIC_ROOT = "/home/tenb4948/public_html/jelawa.id/static/"
 
 
 if DEBUG:
