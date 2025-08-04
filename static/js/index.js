@@ -67,14 +67,14 @@ function handleQuestion(questions, idx) {
     const imgContainer = document.querySelector("#img-container");
 
     numQuestions.innerHTML = `Question <span id="current-question">${idx + 1}</span> of ${questions.length}`;
+    imgContainer.innerHTML = "";
     question.innerHTML = questions[idx].text;
     answers.innerHTML = "";
     if (questions[idx].img) {
         imgContainer.innerHTML = `<img
                                       src="${questions[idx].img}"
                                       alt=""
-                                      class="img-fluid rounded shadow"
-                                    />`;
+                                      class="img-fluid rounded shadow"/>`;
     }
 
     let userAnswers = JSON.parse(sessionStorage.getItem("answers")) || [];
