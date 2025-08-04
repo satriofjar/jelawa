@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django_summernote.admin import SummernoteModelAdmin
 from .models import Answer, City, Island, Question
 
 # Register your models here.
@@ -6,9 +7,10 @@ from .models import Answer, City, Island, Question
 class AnswareInline(admin.TabularInline):
     model = Answer
 
-class QuestionAdmin(admin.ModelAdmin):
+class QuestionAdmin(SummernoteModelAdmin):
     inlines = (AnswareInline,)
     list_filter = ("city__name",)
+    summernote_fields = ('text',)
 
 
 admin.site.register(Island)

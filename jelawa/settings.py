@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "base",
     "display_text",
+    'django_summernote',
 ]
 
 MIDDLEWARE = [
@@ -139,7 +140,7 @@ if DEBUG:
 
 else:
     STATIC_URL = "static/"
-    MEDIA_URL = "http://jelawa.id/"
+    MEDIA_URL = "https://jelawa.id/"
     MEDIA_ROOT = "/home/tenb4948/public_html/jelawa.id/"
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
