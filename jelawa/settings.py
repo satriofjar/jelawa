@@ -33,7 +33,6 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "base",
     "display_text",
-    "django_summernote",
 ]
 
 MIDDLEWARE = [

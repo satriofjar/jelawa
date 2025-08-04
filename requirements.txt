@@ -1,7 +1,6 @@
 asgiref==3.9.1
 bleach==6.2.0
 Django==5.2.4
-django-summernote==0.8.20.0
 djhtml==3.0.8
 pillow==11.3.0
 python-dotenv==1.1.1
