@@ -88,7 +88,7 @@ function handleQuestion(questions, idx) {
 
         i += 1;
     }
-    progressBar.style.width = `${(idx + 1 / questions.length) * 100}%`;
+    progressBar.style.width = `${((idx + 1) / questions.length) * 100}%`;
 
     // prev button
     const prevBtn = `<button
