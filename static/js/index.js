@@ -1,19 +1,23 @@
-// Function to show popUp island
+const capitalize = (word) => {
+    return word.charAt(0).toUpperCase() + word.slice(1);
+};
 
+// Function to show popUp island
 async function showModal(id) {
     // Island name and description
     const islandName = document.querySelector("#island-name");
     const islandDesc = document.querySelector("#island-desc");
     const citiesWrapper = document.querySelector("#cities-wrapper");
-    console.log(window.APP_CONFIG.apiBase);
+    const h5CityTitle = document.querySelector("#h5-city-title");
 
     try {
         const response = await fetch(
             window.APP_CONFIG.apiBase + `/get-island/${id}`,
         );
         const data = await response.json();
-        islandName.innerHTML = data.name;
+        islandName.innerHTML = capitalize(data.name);
         islandDesc.innerHTML = data.desc;
+        h5CityTitle.innerHTML = `Makanan Khas dari ${capitalize(data.cities[0].name)}`
 
         const cities = document.querySelector("#cities");
         cities.innerHTML = "";
@@ -21,7 +25,7 @@ async function showModal(id) {
             cities.innerHTML += `<div class="col-5 m-2" >
                                             <input type="radio" class="btn-check" name="city-name" id="${city.name}" value="${city.name}" autocomplete="off" ${data.cities.length == 1 ? "checked" : ""}>
                                             <label class="card btn btn-city border-0 py-2 text-center th-bg rounded-3" for="${city.name}">
-                                                   ${city.name} 
+                                                   ${capitalize(city.name)} 
                                             </label>
                                         </div>`;
         }
@@ -38,9 +42,6 @@ async function showModal(id) {
 }
 
 
-const capitalize = (word) => {
-    return word.charAt(0).toUpperCase() + word.slice(1);
-};
 
 async function getQuestions(cityName) {
     try {
@@ -95,14 +96,14 @@ function handleQuestion(questions, idx) {
     class="btn btn-outline-secondary"
     ${idx <= 0 ? "disabled" : ""} 
     onclick="handleNextPrevQuestion(${idx - 1})">
-      Previous
+     Sebelumnya 
   </button>`;
 
     // next/finish button
     const isLast = idx >= questions.length - 1;
     const nextBtn = isLast
-        ? `<button id="btn-next" class="btn btn-warning text-white  ${!userAnswers.find((a) => a.question == idx) ? "disabled" : ""}" onclick="handleResult()">Finish</button>`
-        : `<button id="btn-next" class="btn btn-warning text-white ${!userAnswers.find((a) => a.question == idx) ? "disabled" : ""}" onclick="handleNextPrevQuestion(${idx + 1})">Next</button>`;
+        ? `<button id="btn-next" class="btn btn-warning text-white  ${!userAnswers.find((a) => a.question == idx) ? "disabled" : ""}" onclick="handleResult()">Selesai</button>`
+        : `<button id="btn-next" class="btn btn-warning text-white ${!userAnswers.find((a) => a.question == idx) ? "disabled" : ""}" onclick="handleNextPrevQuestion(${idx + 1})">Selanjutnya</button>`;
 
     nextPrev.innerHTML = prevBtn + nextBtn;
 }
@@ -179,15 +180,21 @@ function handleResult() {
     });
 
     quizScoreRes.innerHTML = `${res}/${questions.length}`;
-    quizScore.innerHTML = `You scored ${res} out of ${questions.length}!`;
+    quizScore.innerHTML = `Skor kamu ${res} dari ${questions.length}!`;
 
-    const feedbacks = ["Belajar lagi ya!!", "Tingkatkan terus!!", "Perfect!!"];
-    if (res < 5) {
+    const feedbacks = ["Jangan bersedih! Masih ada kesempatan.", "Belajar lagi, ya!", "Semangat!", "Keren!", "Luar biasa!", "Sempurna!"];
+    if (res < 2) {
         feedBack.innerHTML = feedbacks[0];
-    } else if (res < 7) {
+    } else if (res < 4) {
         feedBack.innerHTML = feedbacks[1];
-    } else {
+    } else if (res < 6) {
         feedBack.innerHTML = feedbacks[2];
+    } else if (res < 8){
+        feedBack.innerHTML = feedbacks[3];
+    } else if (res == 9){
+        feedBack.innerHTML = feedbacks[4];
+    } else {
+        feedBack.innerHTML = feedbacks[5];
     }
 
     sessionStorage.removeItem("answers");

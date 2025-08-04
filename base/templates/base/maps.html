@@ -1,14 +1,16 @@
-{% extends 'main.html' %} {% load static %} {% block content %}
+{% extends 'main.html' %} {% load static %} 
+{% block title %}
+    Jelawa | Peta Makanan Nusantara
+{% endblock title %}
+{% block content %}
 
 <section class="py-5">
   <div class="container text-center">
     <h1 class="display-5 fw-bold mb-3" style="color: #90953b">
         {{ maps_content.maps_title }}
-      <!-- Interactive Map of Indonesia -->
     </h1>
     <p class="lead" style="color: #6b7280">
         {{ maps_content.maps_desc }}
-      <!-- Click on any island to explore and learn more about it -->
     </p>
   </div>
 
@@ -249,9 +251,7 @@
   </div>
   <div class="text-center mt-4">
     <p class="text-muted">
-      <small
-        >💡 Tip: Click on any island marker to view detailed information and
-        explore further</small
+      <small>💡 Petunjuk: klik pulau yang ingin Sobat Lawa jelajahi! </small
       >
     </p>
   </div>
@@ -270,9 +270,9 @@
         <div class="w-100">
           <div class="d-flex justify-content-between align-items-center">
             <div>
-              <h3 id="island-name" class="modal-title mb-1">Island</h3>
+              <h3 id="island-name" class="modal-title mb-1"></h3>
               <p class="text-muted mb-1" style="font-size: 0.9rem">
-                Indonesian Archipelago
+               Pulau di Indonesia 
               </p>
             </div>
             <button
@@ -299,7 +299,7 @@
                   class="badge px-3 py-2 text-light rounded-4 fw-normal sec-bg"
                   style="font-size: 0.8rem"
                 >
-                  Island View
+                 Gambar Pulau 
                 </span>
               </div>
               <div class="card border-0 shadow-sm rounded-3">
@@ -322,14 +322,12 @@
               <form method="POST" action="{% url 'mulai-jelajah' %}">
                 {% csrf_token %}
                 <div class="flex-grow-1">
-                  <h5 class="mb-3 fw-normal sec-color">About this Island</h5>
+                  <h5 id="h5-city-title" class="mb-3 fw-normal sec-color">About this Island</h5>
                   <p
                     id="island-desc"
                     class="text-muted mb-4"
                     style="line-height: 1.6; font-size: 0.95rem"
                   >
-                    The most populous island in Indonesia and home to the
-                    capital city Jakarta.
                   </p>
                   <!-- If island is jawa-->
                   <div id="cities-wrapper" class="mb4">
@@ -360,7 +358,7 @@
                           >
                             <span style="font-size: 1.2rem"> 🎥 </span>
                           </div>
-                          <small class="text-muted"> Videos </small>
+                          <small class="text-muted">Video</small>
                         </div>
                       </div>
                       <div class="col-6">
@@ -375,7 +373,7 @@
                           >
                             <span style="font-size: 1.2rem"> 📝 </span>
                           </div>
-                          <small class="text-muted"> Quizzes </small>
+                          <small class="text-muted">Kuis</small>
                         </div>
                       </div>
                     </div>
@@ -386,7 +384,7 @@
                 <div class="pt-3 border-top">
                   <div class="d-grid gap-2">
                     <button type="submit" class="btn btn-lg main-btn">
-                      Start Learning
+                     Mulai Belajar 
                     </button>
                     <button
                       type="button"
@@ -394,7 +392,7 @@
                       data-bs-dismiss="modal"
                       style="border-radius: 8px; padding: 8px"
                     >
-                      Close
+                     Tutup 
                     </button>
                   </div>
                 </div>
@@ -427,7 +425,7 @@
     const marker = document.createElementNS(svgNS, "image");
     marker.setAttribute(
       "href",
-          "{{ API_BASE_URL }}/img/maps-point.png",
+          "{{ IMG_BASE_URL }}/img/maps-point.png",
     );
     marker.setAttribute("x", x - 10);
     marker.setAttribute("y", y - 10);

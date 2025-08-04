@@ -1,6 +1,5 @@
 from django.db import models
 from django.utils.html import strip_tags
-from django_ckeditor_5.fields import CKEditor5Field
 
 from .validators import validate_file_size
 
@@ -17,6 +16,8 @@ class Island(models.Model):
 class City(models.Model):
     island = models.ForeignKey(Island, on_delete=models.CASCADE)
     name = models.CharField(max_length=225)
+    theme = models.CharField(default="", max_length=225)
+    description = models.TextField(default="")
     video = models.CharField(max_length=200)
 
     def __str__(self):
@@ -25,7 +26,7 @@ class City(models.Model):
 
 class Question(models.Model):
     city = models.ForeignKey(City, on_delete=models.SET_NULL, null=True)
-    text = CKEditor5Field("Question")
+    text = models.TextField("Question")
     img = models.ImageField(blank=True, null=True, validators=[validate_file_size])
 
     @property

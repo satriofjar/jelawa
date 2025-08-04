@@ -17,7 +17,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG") == "True"
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["jelawa.id", "www.jelawa.id"]
 
 API_BASE_URL = os.getenv("API_BASE_URL", "/api")
 IMG_BASE_URL = os.getenv("IMG_BASE_URL", "/media")
@@ -33,7 +33,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "base",
     "display_text",
-    "django_ckeditor_5",
+    "django_summernote",
 ]
 
 MIDDLEWARE = [
@@ -140,34 +140,11 @@ if DEBUG:
 
 else:
     STATIC_URL = "static/"
-    MEDIA_URL = "https://prototype.tenomas.com/"
-    MEDIA_ROOT = "/home/tenb4948/public_html/prototype.tenomas.com/"
+    MEDIA_URL = "https://jelawa.id/"
+    MEDIA_ROOT = "/home/tenb4948/public_html/jelawa.id/"
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-
-CKEDITOR_5_CUSTOM_CSS = "css/style.css"
-
-CKEDITOR_5_CONFIGS = {
-    "default": {
-        "toolbar": {
-            "items": [
-                "heading",
-                "|",
-                "bold",
-                "italic",
-                "link",
-                "bulletedList",
-                "numberedList",
-                "blockQuote",
-                "imageUpload",
-            ],
-        }
-    },
-    }
-
-# Define a constant in settings.py to specify file upload permissions
-CKEDITOR_5_FILE_UPLOAD_PERMISSION = "staff"  # Possible values: "staff", "authenticated", "any"
 

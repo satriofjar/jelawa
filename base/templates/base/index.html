@@ -1,4 +1,9 @@
-{% extends 'main.html' %} {% load static %} {% block content %}
+{% extends 'main.html' %} {% load static %} 
+{% block title %}
+    Jelawa | Belajar Bahasa Indonesia Lewat Rasa
+{% endblock title %}
+{% block content %}
+
 <!-- Hero Section -->
 <section class="py-5" style="background-color: #f3ede0">
   <div class="container">
@@ -24,7 +29,7 @@
       </div>
       <div class="col-lg-6 text-center hero-right">
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Indonesian_cities_and_regencies.svg"
+          src="{% static 'img/food-bg.png' %}"
           width="500"
           height="400"
           alt="Indonesian Islands Illustration"
@@ -70,7 +75,7 @@
             font-size: 1.2rem;
           "
         >
-          🗺️ Mulai Jelajahi Peta
+          🗺️ Jelajahi untuk Belajar 
        </a>
       </div>
     </div>
