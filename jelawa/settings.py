@@ -17,10 +17,12 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG") == "True"
 
-ALLOWED_HOSTS = ["jelawa.id", "www.jelawa.id"]
+ALLOWED_HOSTS = ["jelawa.id", "www.jelawa.id", "127.0.0.1"]
 
 API_BASE_URL = os.getenv("API_BASE_URL", "/api")
 IMG_BASE_URL = os.getenv("IMG_BASE_URL", "/media")
+
+SITE_ID = 1
 
 # Application definition
 
@@ -31,9 +33,11 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django.contrib.sites",
+    "django.contrib.sitemaps",
     "base",
     "display_text",
-    'django_summernote',
+    "django_summernote",
 ]
 
 MIDDLEWARE = [
@@ -146,5 +150,3 @@ else:
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-
-

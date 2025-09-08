@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /cgi-sys/suspendedpage.cgi
+
+Sitemap: https://jelawa.id/sitemap.xml

@@ -66,7 +66,7 @@ function handleQuestion(questions, idx) {
     const nextPrev = document.querySelector("#next-prev");
     const imgContainer = document.querySelector("#img-container");
 
-    numQuestions.innerHTML = `Question <span id="current-question">${idx + 1}</span> of ${questions.length}`;
+    numQuestions.innerHTML = `Soal <span id="current-question">${idx + 1}</span> dari ${questions.length}`;
     imgContainer.innerHTML = "";
     question.innerHTML = questions[idx].text;
     answers.innerHTML = "";
@@ -74,7 +74,7 @@ function handleQuestion(questions, idx) {
         imgContainer.innerHTML = `<img
                                       src="${questions[idx].img}"
                                       alt=""
-                                      class="img-fluid rounded shadow"/>`;
+                                      class="img-fluid img-quest rounded shadow"/>`;
     }
 
     let userAnswers = JSON.parse(sessionStorage.getItem("answers")) || [];

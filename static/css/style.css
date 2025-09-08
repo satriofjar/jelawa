@@ -85,3 +85,10 @@ button.btn.btn-answer.btn-outline-secondary:hover {
     color: black !important;
     background-color: white !important;
 }
+
+
+.img-quest {
+    max-width: auto;
+    max-height: 350px;
+
+}
