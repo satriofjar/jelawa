@@ -17,7 +17,7 @@ async function showModal(id) {
         const data = await response.json();
         islandName.innerHTML = capitalize(data.name);
         islandDesc.innerHTML = data.desc;
-        h5CityTitle.innerHTML = `Makanan Khas dari ${capitalize(data.cities[0].name)}`
+        h5CityTitle.innerHTML = `Makanan Khas ${capitalize(data.cities[0].name)}`
 
         const cities = document.querySelector("#cities");
         cities.innerHTML = "";
